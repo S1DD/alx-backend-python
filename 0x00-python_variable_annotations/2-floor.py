@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-import math
+'''Task 2: Basic annotations - floor
+'''
+
 
 def floor(n: float) -> float:
-    return math.floor(n)
+    '''Computes the floor of a floating-point number.
+    '''
+    return int(n)
