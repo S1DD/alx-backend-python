@@ -3,7 +3,7 @@
 """Contains a method that spawns wait_random n times with a
 specified delay between each call."""
 
-from typings import List
+from typing import List
 import asyncio
 
 wait_random = __import__('0-basic_async_syntax').wait_random
@@ -15,11 +15,10 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     Args:
         n: number of times to spawn wait_random
         max_delay: maximum delay between each call
-    Returns:
-        list of delays
+        Returns:
+            list of delays
     """
-     waits = await asyncio.gather(
-        *list(map(lambda _: wait_random(max_delay), range(n)))
-    )
-
+    waits = await asyncio.gather(
+            *list(map(lambda _: wait_random(max_delay), range(n)))
+            )
     return sorted(waits)
