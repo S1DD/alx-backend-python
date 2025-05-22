@@ -42,9 +42,9 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
 
-    class TestGetJson(unittest.TestCase):
-        '''Tests the `utils.get_json` function.
-        '''
+class TestGetJson(unittest.TestCase):
+    '''Tests the `utils.get_json` function.
+    '''
 
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
