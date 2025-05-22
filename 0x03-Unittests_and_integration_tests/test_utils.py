@@ -9,7 +9,6 @@ from typing import (
     Dict,
     Mapping,
     Sequence,
-    Tuple,
     Union,
 )
 
@@ -26,9 +25,9 @@ class TestAccessNestedMap(unittest.TestCase):
         ("intermediate_access", {"a": {"b": 2}}, ("a",), {"b": 2}),
         ("nested_value_access", {"a": {"b": 2}}, ("a", "b"))
     ])
-    def test_access_nested_map(self, 
-                               nested_map: Mapping, 
-                               path: Sequence, 
+    def test_access_nested_map(self,
+                               nested_map: Mapping,
+                               path: Sequence,
                                expected_output: Union[Dict, int]):
         self.assertEqual(access_nested_map(nested_map, path), expected_output)
 
@@ -36,9 +35,9 @@ class TestAccessNestedMap(unittest.TestCase):
         ({}, ("a",), KeyError),
         ({"a": 1}, ("a", "b"), KeyError)
     ])
-    def test_access_nested_map_exception(self, 
-                                         nested_map: Mapping, 
-                                         path: Sequence, 
+    def test_access_nested_map_exception(self,
+                                         nested_map: Mapping,
+                                         path: Sequence,
                                          exception: Exception) -> None:
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
